@@ -1,15 +1,15 @@
 
 server:
-  port: 40400
+  port: 8080
   servlet:
     context-path: /auth
 spring:
   application:
     name: auth-center
   redis:
-    host: 58.87.67.162
-    port: 7000
-    password: Yakai2018@
+    host: localhost
+    port: 16379
+    password: zhengyk
     database: 0
     jedis:
       pool:
@@ -23,9 +23,9 @@ spring:
         max-wait: -1ms
   datasource:
     druid:
-      url: jdbc:mysql://58.87.67.162:3306/xc_user?characterEncoding=utf-8
-      username: yakai
-      password: Yakai2018@
+      url: jdbc:mysql://localhost:3306/sys_user?characterEncoding=utf-8
+      username: zhengyk
+      password: zhengyk
       driverClassName: com.mysql.jdbc.Driver
       initialSize: 5  #初始建立连接数量
       minIdle: 5  #最小连接数量
@@ -35,18 +35,12 @@ spring:
       testOnReturn: false #归还连接时检测连接是否有效
       timeBetweenEvictionRunsMillis: 60000 #配置间隔检测连接是否有效的时间（单位是毫秒）
       minEvictableIdleTimeMillis: 300000  #连接在连接池的最小生存时间（毫秒）
-auth:
-  tokenValiditySeconds: 1200  #token存储到redis的过期时间
-  clientId: XcWebApp
-  clientSecret: XcWebApp
-  cookieDomain: java.itcast.cn
-  cookieMaxAge: -1
 encrypt:
   key-store:
     location: classpath:/my.keystore
-    secret: xuechengkeystore
-    alias: xckey
-    password: xuecheng
+    secret: mykeystore
+    alias: mykey
+    password: zhengyk
 #eureka: 配置中心略
 
 
